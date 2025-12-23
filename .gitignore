@@ -1,0 +1,20 @@
+# Node.js dependencies
+node_modules/
+backend/node_modules/
+package-lock.json
+
+# Python dependencies
+venv/
+ai-service/venv/
+__pycache__/
+*.pyc
+
+# Environment Variables (Secrets)
+.env
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Uploads (Optional: Don't upload user resumes)
+backend/uploads/

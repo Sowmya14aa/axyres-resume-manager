@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Axyres Resume Manager</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .badge-skill { background-color: #e9ecef; color: #333; font-size: 0.9em; margin-right: 5px; margin-bottom: 5px; display: inline-block; padding: 5px 10px; border-radius: 15px; }
+        .nav-link { cursor: pointer; }
+    </style>
+</head>
+<body class="bg-light">
+
+    <div id="authSection" class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-5">
+                <div class="card shadow p-4">
+                    <h2 class="text-center mb-4">Axyres Portal</h2>
+                    <div class="mb-3">
+                        <label>Email</label>
+                        <input type="email" id="email" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label>Password</label>
+                        <input type="password" id="password" class="form-control">
+                    </div>
+                    <button onclick="login()" class="btn btn-primary w-100 mb-2">Login</button>
+                    <button onclick="signup()" class="btn btn-outline-secondary w-100">Sign Up</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="dashboardSection" class="d-none">
+        <nav class="navbar navbar-dark bg-dark px-4">
+            <span class="navbar-brand mb-0 h1">Axyres AI</span>
+            <div class="d-flex align-items-center">
+                <span id="userEmailDisplay" class="text-white me-3"></span>
+                <button onclick="logout()" class="btn btn-outline-light btn-sm">Logout</button>
+            </div>
+        </nav>
+
+        <div class="container mt-4">
+            <ul class="nav nav-tabs mb-3">
+                <li class="nav-item">
+                    <a class="nav-link active" onclick="switchTab('upload')" id="tab-upload">Upload New</a>
+                </li>
+                <li class="nav-item">
+    <a class="nav-link" onclick="switchTab('list')" id="tab-list">Candidate Database</a>
+</li>
+            </ul>
+
+            <div id="view-upload">
+                <div class="card shadow-sm p-4">
+                    <h5>📄 Upload Resume (PDF/DOCX)</h5>
+                    <div class="input-group mb-3 mt-3">
+                        <input type="file" id="resumeFile" class="form-control">
+                        <button onclick="uploadResume()" class="btn btn-success">Analyze with AI</button>
+                    </div>
+                </div>
+                <div id="resultsArea" class="mt-4"></div>
+            </div>
+
+            <div id="view-list" class="d-none">
+                <div class="card shadow-sm">
+                    <div class="card-header bg-white">
+    <h5 class="mb-0">Candidate Database</h5>
+</div>
+                    <div class="card-body p-0">
+                        <table class="table table-hover mb-0">
+                            <thead class="table-light">
+                                <tr>
+                                    <th class="ps-4">Candidate Name</th>
+                                    <th>File Name</th>
+                                    <th>Uploaded</th>
+                                    <th class="text-end pe-4">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="resumeTableBody">
+                                </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

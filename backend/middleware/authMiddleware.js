@@ -1,0 +1,22 @@
+const jwt = require("jsonwebtoken");
+
+module.exports = function (req, res, next) {
+  // Get token from header
+  const token = req.header("Authorization")?.split(" ")[1];
+
+  // Check if no token
+  if (!token) {
+    return res.status(401).json({ msg: "No token, authorization denied" });
+  }
+
+  // Verify token
+  try {
+    // FIX: Use the SAME hardcoded secret as auth.js
+    const decoded = jwt.verify(token, "supersecretkey123");
+
+    req.user = decoded.user;
+    next();
+  } catch (err) {
+    res.status(401).json({ msg: "Token is not valid" });
+  }
+};
