@@ -8,7 +8,7 @@ app = Flask(__name__)
 
 # --- CONFIGURATION ---
 
-GOOGLE_API_KEY = "AIzaSyDuPjDpQzkKcAYyFE1rCBqoMyw9yDGd1Cs" 
+GOOGLE_API_KEY = "AIzaSyBN2V64Gt399lF8ew1B1Bk4ggmKRoOqwHQ" 
 genai.configure(api_key=GOOGLE_API_KEY)
 
 @app.route('/process', methods=['POST'])
